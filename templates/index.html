@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuickRoute</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #map { height: 500px; width: 100%; margin-bottom: 20px; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 5px; }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>📍 QuickRoute - Delivery Route Optimizer</h2>
+    <div id="map"></div>
+
+    <div>
+        <h4>Create Edge</h4>
+        <input id="fromNode" placeholder="From">
+        <input id="toNode" placeholder="To">
+        <input id="weight" placeholder="Weight" type="number">
+        <button onclick="addEdge()">Add Edge</button>
+    </div>
+
+    <div>
+        <h4>Find Shortest Path</h4>
+        <input id="sourceNode" placeholder="Source">
+        <input id="destNode" placeholder="Destination">
+        <select id="algorithm">
+            <option value="dijkstra">Dijkstra</option>
+            <option value="bellman-ford">Bellman-Ford</option>
+            <option value="a-star">A*</option>
+        </select>
+        <button onclick="findPath()">Find Path</button>
+    </div>
+
+    <h4>Created Nodes</h4>
+    <ul id="node-list"></ul>
+
+    <h4>Edges</h4>
+    <ul id="edge-list"></ul>
+
+    <h4 id="pathResult"></h4>
+    <h4 id="linkedListDisplay"></h4>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
